@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Media Hold Playback Rate</title>
+    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Media Chrome gesture experiment</p>
+        <h1 id="page-title">Hold to choose and lock playback speed</h1>
+        <p class="summary">
+          Long press the video to temporarily play faster. While holding, slide
+          vertically to step through speeds, slide right to lock, and slide left
+          to unlock.
+        </p>
+        <p class="repo-link">
+          <a href="https://github.com/YOUR_USERNAME/media-hold-playback-rate#readme">
+            Read the GitHub README
+          </a>
+        </p>
+      </section>
+
+      <section class="demo" aria-label="Interactive video demo">
+        <media-controller id="demo-player">
+          <video
+            slot="media"
+            src="https://stream.mux.com/A3VXy02VoUinw01pwyomEO3bHnG4P32xzV7u1j1FSzjNg/high.mp4"
+            crossorigin
+            playsinline
+          ></video>
+
+          <media-hold-playback-rate>
+            <button slot="rate" value="1.25">1.25x</button>
+            <button slot="rate" value="1.5">1.5x</button>
+            <button slot="rate" value="1.75">1.75x</button>
+            <button slot="rate" value="2">2x</button>
+          </media-hold-playback-rate>
+
+          <media-control-bar>
+            <media-play-button></media-play-button>
+            <media-mute-button></media-mute-button>
+            <media-time-range></media-time-range>
+            <media-time-display showduration></media-time-display>
+            <media-playback-rate-button></media-playback-rate-button>
+            <media-fullscreen-button></media-fullscreen-button>
+          </media-control-bar>
+        </media-controller>
+
+        <div class="gesture-list" aria-label="Gesture reference">
+          <article>
+            <span>1</span>
+            <p><strong>Hold</strong> to use the last chosen speed.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <p><strong>Slide up or down</strong> to reveal the speed stack.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <p><strong>Slide right</strong> to lock; slide left to unlock.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="notes" aria-label="Implementation notes">
+        <p>
+          The element dispatches Media Chrome
+          <code>mediaplaybackraterequest</code> events instead of mutating the
+          video directly.
+        </p>
+        <p>
+          Thresholds are configured as attributes on
+          <code>&lt;media-hold-playback-rate&gt;</code>.
+        </p>
+        <pre><code>&lt;media-controller&gt;
+  &lt;video slot="media" src="video.mp4" playsinline&gt;&lt;/video&gt;
+
+  &lt;media-hold-playback-rate
+    hold-delay="280"
+    vertical-threshold="24"
+    horizontal-threshold="72"
+  &gt;
+    &lt;button slot="rate" value="1.25"&gt;1.25x&lt;/button&gt;
+    &lt;button slot="rate" value="1.5"&gt;1.5x&lt;/button&gt;
+    &lt;button slot="rate" value="1.75"&gt;1.75x&lt;/button&gt;
+    &lt;button slot="rate" value="2"&gt;2x&lt;/button&gt;
+  &lt;/media-hold-playback-rate&gt;
+
+  &lt;media-control-bar&gt;
+    &lt;media-play-button&gt;&lt;/media-play-button&gt;
+    &lt;media-time-range&gt;&lt;/media-time-range&gt;
+    &lt;media-playback-rate-button&gt;&lt;/media-playback-rate-button&gt;
+  &lt;/media-control-bar&gt;
+&lt;/media-controller&gt;</code></pre>
+      </section>
+    </main>
+  </body>
+</html>

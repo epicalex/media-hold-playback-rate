@@ -1,0 +1,64 @@
+{
+  "name": "media-hold-playback-rate",
+  "version": "0.1.0",
+  "description": "A Media Chrome-style hold gesture for temporary and locked playback-rate changes.",
+  "license": "MIT",
+  "type": "module",
+  "author": "",
+  "keywords": [
+    "media-chrome",
+    "webcomponent",
+    "video",
+    "playback-rate",
+    "gesture"
+  ],
+  "homepage": "https://github.com/alexcragg/media-hold-playback-rate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexcragg/media-hold-playback-rate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexcragg/media-hold-playback-rate/issues"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "vite demo --host 127.0.0.1",
+    "prepare": "npm run build",
+    "prepack": "npm run build",
+    "test": "npm run build && web-test-runner \"test/**/*.test.js\" --node-resolve --playwright --browsers chromium --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test"
+  },
+  "dependencies": {
+    "media-chrome": "^4.19.2"
+  },
+  "devDependencies": {
+    "@open-wc/testing": "^4.0.0",
+    "@web/test-runner": "^0.20.2",
+    "@web/test-runner-playwright": "^0.11.0",
+    "playwright": "^1.54.2",
+    "typescript": "^5.9.2",
+    "vite": "^6.3.5"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2
+  }
+}
