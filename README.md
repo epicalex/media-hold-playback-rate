@@ -6,6 +6,8 @@ A Media Chrome-style custom element for hold-to-speed video playback.
 
 It is designed to work with [Media Chrome](https://www.media-chrome.org/) rather than around it. The element dispatches Media Chrome playback-rate request events and lets `<media-controller>` update media state.
 
+[Try the demo](https://epicalex.github.io/media-hold-playback-rate/)
+
 ## Why
 
 On mobile video players, hold-to-2x is wonderfully fast. The awkward part is choosing a different speed, or making that speed stick, without diving through settings menus.

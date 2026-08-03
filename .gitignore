@@ -3,3 +3,4 @@ dist/
 .DS_Store
 coverage/
 .web-test-runner/
+demo-dist/
